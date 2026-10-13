@@ -1,0 +1,152 @@
+    @import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+    :root {
+      --Purple-50: hsl(260, 100%, 95%);
+      --Purple-300: hsl(264, 82%, 80%);
+      --Purple-500: hsl(263, 55%, 52%);
+
+      --White: hsl(0, 0%, 100%);
+      --Grey-100: hsl(214, 17%, 92%);
+      --Grey-200: hsl(0, 0%, 81%);
+      --Grey-400: hsl(224, 10%, 45%);
+      --Grey-500: hsl(217, 19%, 35%);
+      --Dark-blue: hsl(219, 29%, 14%);
+      --Black: hsl(0, 0%, 7%);
+    }
+
+    body {
+      background: var(--Grey-100);
+      font-family: 'Barlow Semi Condensed', sans-serif;
+      font-size: 0.8125rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      padding: 4.5rem 1.5rem;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .grid-section {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      grid-template-areas: 
+      "daniel daniel jonathan kira"
+      "jeanette patrick patrick kira";
+      gap: 1.875rem;
+      max-width: 69.375rem;
+    }
+
+    /* Common Card Styles */
+    .daniel, .jonathan, .jeanette, .patrick, .kira {
+      border-radius: 0.5rem;
+      padding: 2rem;
+      box-shadow: 15px 40px 30px 0 rgba(18, 18, 18, 0.16);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Grid Area Assignments & Backgrounds */
+    .daniel { background: var(--Purple-500); grid-area: daniel; position: relative; z-index: 1; }
+    .jonathan { background: var(--Grey-500); grid-area: jonathan; }
+    .jeanette { background: var(--White); grid-area: jeanette; }
+    .patrick { background: var(--Dark-blue); grid-area: patrick; }
+    .kira { background: var(--White); grid-area: kira; }
+
+    /* Text Colors */
+    .daniel, .jonathan, .patrick { color: var(--White); }
+    .jeanette, .kira { color: var(--Grey-500); }
+    .jeanette .text h1, .kira .text h1, 
+    .jeanette .article h1, .kira .article h1 { color: var(--Dark-blue); }
+
+    /* Profile Section */
+    .profile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.125rem;
+    }
+
+    .profile img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    /* Using root colors for borders */
+    .daniel .profile img { border: 0.125rem solid var(--Purple-300); }
+    .patrick .profile img { border: 0.125rem solid var(--Purple-500); }
+
+    .text h1 {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .text p {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      opacity: 0.5;
+      margin: 0.25rem 0 0 0;
+    }
+
+    .quotation {
+      position: absolute;
+      top: 0;
+      right: 5rem;
+      z-index: -1;
+    }
+
+    .quotation img {
+      width: 6.5rem;
+      height: auto;
+    }
+
+    /* Article Section */
+    .article h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+      line-height: 1.3;
+    }
+
+    .article p {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      opacity: 0.7;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    .attribution { 
+      font-size: 0.6875rem; 
+      text-align: center; 
+      padding-bottom: 1.5rem;
+    }
+    
+    .attribution a { 
+      color: hsl(228, 45%, 44%); /* Changed to root color */
+    }
+
+    /* Mobile Layout - Triggered by portrait orientation */
+    @media (orientation: portrait) {
+      .grid-section {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "daniel"
+        "jonathan"
+        "jeanette"
+        "patrick"
+        "kira";
+      }
+
+      .quotation {
+        right: 1.5rem;
+      }
+    }
+  </style>
